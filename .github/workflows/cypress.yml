@@ -21,6 +21,9 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '20.18.0'  
+      - name: Build and start services with Docker Compose
+        run: |
+          docker-compose up -d  # Startup Kong Manager
 
       - name: Install dependencies
         run: npm install
