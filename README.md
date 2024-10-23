@@ -46,3 +46,6 @@ module.exports = defineConfig({
 
 - Run the test again. The results as below in console and there will be the results details in file `cypress/reports`
 ![alt text](image-1.png)
+
+
+### Shut down docker services using command  `docker-compose down`
