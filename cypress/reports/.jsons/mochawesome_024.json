@@ -1,0 +1,124 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-10-23T12:58:27.020Z",
+    "end": "2024-10-23T12:58:43.051Z",
+    "duration": 16031,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "2c22fec3-2688-41d6-8f39-7f9f4b863c19",
+      "title": "",
+      "fullFile": "cypress/e2e/GatewayServices.cy.ts",
+      "file": "cypress/e2e/GatewayServices.cy.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "32865d99-6276-4af1-8747-b862b05d5ccd",
+          "title": "Gateway Services Testing",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "create a new gateway services",
+              "fullTitle": "Gateway Services Testing create a new gateway services",
+              "timedOut": null,
+              "duration": 6432,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Generate the unique gateway service name\nvar uniqueString = 'GatewayService_' + Date.now();\nvar uniqueServiceName = uniqueString;\ncy.get('span').contains('Gateway Services'); // Check the Header for the page.\ncy.contains('a', 'New Gateway Service').click(); //Click \"Create new gateway service\" button.\ncy.get('input[name=\"name\"]').type(uniqueServiceName);\ncy.get('input[name=\"url\"]').type('http://example.com/' + uniqueServiceName);\ncy.contains('button', 'Save').click();\ncy.wait(3000);\n//Verify the gateway service newly created in the table list as below:\ncy.get('table')\n    .contains('td', uniqueServiceName)\n    .should('exist');",
+              "err": {},
+              "uuid": "4ff867e9-42c6-401d-acfb-0569e4b9020c",
+              "parentUUID": "32865d99-6276-4af1-8747-b862b05d5ccd",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Create any additional entities associated with a Service",
+              "fullTitle": "Gateway Services Testing Create any additional entities associated with a Service",
+              "timedOut": null,
+              "duration": 7903,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Create a additional entity to the service with name \"GW_Service1\"\n// Generate the unique route name\nvar uniqueString = '/Route_' + Date.now();\nvar uniqueRouteName = uniqueString;\ncy.get('table')\n    .contains('td', 'GW_Service1')\n    .click();\ncy.wait(2000);\ncy.visit('http://localhost:8002/default/services/328cbaa2-b5ce-488e-82a5-8b8f3e5452db/routes');\ncy.contains('a', 'New Route').click();\ncy.get('input[placeholder=\"Enter a path\"]').type(uniqueRouteName);\ncy.contains('button', 'Save').click();\ncy.wait(3000);\n//Verify the newly created route if in the list.\ncy.get('table')\n    .contains('td', uniqueRouteName)\n    .should('exist');",
+              "err": {},
+              "uuid": "6cbe3e1c-6d7c-4887-aa35-74050840eeaa",
+              "parentUUID": "32865d99-6276-4af1-8747-b862b05d5ccd",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "4ff867e9-42c6-401d-acfb-0569e4b9020c",
+            "6cbe3e1c-6d7c-4887-aa35-74050840eeaa"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 14335,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/.jsons",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
