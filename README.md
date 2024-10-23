@@ -1,5 +1,13 @@
 # Steps for Home assignment ( notes: Local machine is MacOS)
 
+## Description for the assignment:
+ - Complete the Basic test actions and Bonus ideas (Test Result Reporting)
+ - Complete the test task using e2e type for Cypress
+ - Only covered the happy path for the tests, not including others (For example, the negative ones -> Add gateway service failed...)
+ 
+ ## Below is the details for the assignment.
+
+
 ### Setup local Kong Manager:
 - Install Docker Desktop (Mac version)
 - Create containers for Kong Manager using docker-compose.yml, the command is `docker-compose up -d`
@@ -7,8 +15,8 @@
 
 
 ### Setup Cypress Typescript testing environment
-- Precondition: install latest stable node and npm.
-- Create a new project named "kong".
+- Precondition: install latest stable node and npm
+- Create a new project named "kong"
 - Initial the package.json using command `npm init -y`
 - Install the required node packages using command `npm install`
 - Install Cypress and Typescript using command `npm install cypress typescript @types/node --save-dev`
